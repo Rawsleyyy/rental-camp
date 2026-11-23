@@ -78,34 +78,6 @@
 
 ---
 
-## 📸 Tangkapan Layar
-
-> Simpan file gambar ke dalam folder `docs/screenshots/` lalu sesuaikan nama filenya di bawah ini.
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/screenshots/homepage.png" width="420" alt="Homepage Rawlseyyy" /><br />
-      <sub><b>Homepage & Katalog Unggulan</b></sub>
-    </td>
-    <td align="center">
-      <img src="docs/screenshots/katalog.png" width="420" alt="Katalog & Checkout" /><br />
-      <sub><b>Katalog & Validasi Stok per Tanggal</b></sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/screenshots/profile-rentals.png" width="420" alt="Riwayat Sewa & QR" /><br />
-      <sub><b>Riwayat Sewa & Kartu Pengambilan QR</b></sub>
-    </td>
-    <td align="center">
-      <img src="docs/screenshots/staff-dashboard.png" width="420" alt="Dashboard Staff" /><br />
-      <sub><b>Dashboard Staff & Monitoring Pengembalian</b></sub>
-    </td>
-  </tr>
-</table>
-
----
 
 ## 🚀 Cara Instalasi & Menjalankan Proyek
 
