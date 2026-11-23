@@ -1,66 +1,186 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ⛺ Rawlseyyy — Sistem Informasi Persewaan Alat Camping
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpine.js&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-## About Laravel
+**Rawlseyyy** adalah aplikasi web persewaan alat camping berbasis **Laravel** yang dirancang untuk memudahkan proses pemesanan perlengkapan mendaki secara *online*, mulai dari validasi ketersediaan stok per rentang tanggal, pembayaran terverifikasi dengan kode unik, kartu pengambilan berbasis QR Code, hingga pemantauan pengembalian dan perhitungan denda keterlambatan secara otomatis.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🌐 Pengunjung (Publik)
+- **Homepage & Katalog Alat:** Ringkasan alat camping unggulan, paket sewa, panduan reservasi, serta halaman katalog lengkap (`/katalog`) dengan filter kategori dan pencarian.
+- **Artikel Edukasi Camping:** Informasi dan tips seputar pendakian serta pemilihan alat (`/artikel`).
+- **Cek Booking & Kartu Pengambilan:** Verifikasi status pesanan menggunakan kode booking + email/telepon (`/cek-booking`) yang menampilkan **QR Code SVG** dan *checklist* serah terima alat saat status sudah `confirmed`.
+- **Statistik Penyewaan:** Visualisasi interaktif menggunakan **Chart.js** (`/statistik`) untuk tren penyewaan bulanan, data pembatalan, dan tingkat pemakaian stok alat.
 
-## Learning Laravel
+### 🎒 User (Penyewa)
+- **Keranjang Sewa & Checkout:** Tambah alat/paket ke keranjang (`/cart`) dan atur jumlah unit sebelum mengajukan sewa.
+- **Validasi Stok Real-Time per Rentang Tanggal:** Mencegah bentrok jadwal (*double booking*) dengan mengecek sisa stok aktif pada tanggal mulai hingga selesai sewa.
+- **Pembayaran 2 Tahap (Anti-Penipuan):** Nominal transfer dilengkapi **3 digit kode unik** dan wajib mengunggah bukti transfer sebelum diverifikasi Staff.
+- **Weather-Smart Suggestion:** Rekomendasi perlengkapan tambahan (seperti *flysheet* dan jas hujan) berdasarkan prakiraan cuaca lokasi tujuan menggunakan OpenWeatherMap API.
+- **Profil & Riwayat Sewa (`/profile`):** Manajemen data pribadi & foto profil, pantau status sewa secara *real-time*, akses kartu QR, dan form pengajuan pembatalan.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📋 Staff (Operasional)
+- **Dashboard Monitoring:** Ringkasan pesanan baru, pembayaran menunggu verifikasi, penyewaan aktif (`ongoing`), serta peringatan merah untuk penyewa yang melewati batas waktu pengembalian (*Overdue*).
+- **Persetujuan Sewa & Verifikasi Pembayaran:** Menyetujui/menolak permintaan sewa beserta alasan, serta memverifikasi foto bukti transfer dan kode unik.
+- **Serah Terima & Pengembalian Otomatis:** Proses *check-out* alat ke penyewa, pencatatan kondisi alat (baik/rusak/hilang), serta kalkulasi otomatis **denda keterlambatan** dan laporan kerusakan (`damage_reports`).
+- **Approval Pembatalan & Manajemen Konten:** Persetujuan pengajuan pembatalan penyewa serta CRUD data alat camping dan artikel.
+- **Audit Trail Otomatis:** Setiap tindakan penting Staff tercatat otomatis ke dalam tabel `activity_logs`.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 🛡️ Admin
+- **Manajemen Akun:** Pengelolaan data akun User dan Staff.
+- **Master Data:** Pengelolaan penuh kategori, alat camping, dan artikel.
+- **Monitoring Log Aktivitas:** Memantau riwayat tindakan operasional Staff dan laporan kerusakan alat.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🔄 Alur Status Transaksi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```text
+[User Checkout] ──► pending
+                      │
+        ┌─────────────┴─────────────┐
+        ▼ (Ditolak Staff)           ▼ (Disetujui Staff + Kode Unik)
+    rejected                    approved
+                                    │
+                                    ▼ (User Upload Bukti Bayar)
+                          waiting_verification
+                                    │
+        ┌───────────────────────────┴───────────────────────────┐
+        ▼ (Bukti Ditolak -> Kembali ke approved)                ▼ (Valid)
+    approved                                                confirmed (QR Aktif)
+                                                                │
+                                                                ▼ (Alat Diambil)
+                                                             ongoing
+                                                                │
+                                                                ▼ (Alat Kembali + Cek Denda)
+                                                             returned
+```
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🛠️ Tech Stack
 
-## Contributing
+| Komponen | Teknologi |
+| :--- | :--- |
+| **Backend Framework** | Laravel (PHP 8.2+) |
+| **Autentikasi** | Laravel Breeze |
+| **Frontend & Styling** | Blade Template, Tailwind CSS, Alpine.js, AOS (Animate On Scroll) |
+| **Visualisasi Data** | Chart.js |
+| **Database** | MySQL |
+| **Integrasi Eksternal** | OpenWeatherMap API *(Weather-Smart Suggestion)* |
+| **Local Development** | Laravel Herd / XAMPP |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📸 Tangkapan Layar
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+> Simpan file gambar ke dalam folder `docs/screenshots/` lalu sesuaikan nama filenya di bawah ini.
 
-## Security Vulnerabilities
+<table>
+  <tr>
+    <td align="center">
+      <img src="docs/screenshots/homepage.png" width="420" alt="Homepage Rawlseyyy" /><br />
+      <sub><b>Homepage & Katalog Unggulan</b></sub>
+    </td>
+    <td align="center">
+      <img src="docs/screenshots/katalog.png" width="420" alt="Katalog & Checkout" /><br />
+      <sub><b>Katalog & Validasi Stok per Tanggal</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/screenshots/profile-rentals.png" width="420" alt="Riwayat Sewa & QR" /><br />
+      <sub><b>Riwayat Sewa & Kartu Pengambilan QR</b></sub>
+    </td>
+    <td align="center">
+      <img src="docs/screenshots/staff-dashboard.png" width="420" alt="Dashboard Staff" /><br />
+      <sub><b>Dashboard Staff & Monitoring Pengembalian</b></sub>
+    </td>
+  </tr>
+</table>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🚀 Cara Instalasi & Menjalankan Proyek
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 1. Clone Repository
+```bash
+git clone [https://github.com/Rawsleyyy/rental-camp.git](https://github.com/Rawsleyyy/rental-camp.git)
+cd rental-camp
+```
+
+### 2. Install Dependensi
+```bash
+composer install
+npm install && npm run build
+```
+
+### 3. Konfigurasi Environment
+Salin file `.env.example` menjadi `.env`, lalu buat *application key*:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Sesuaikan pengaturan database (dan API key cuaca bila digunakan) di dalam file `.env`:
+```env
+APP_NAME="Rawlseyyy"
+APP_URL=[http://rental-camp.test](http://rental-camp.test)
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=rental_camp
+DB_USERNAME=root
+DB_PASSWORD=
+
+OPENWEATHER_API_KEY=your_openweathermap_api_key
+```
+
+> **Catatan untuk pengguna XAMPP / MariaDB versi lama:** Pastikan `collation` pada `config/database.php` (bagian `mysql`) menggunakan `utf8mb4_unicode_ci` agar migrasi berjalan tanpa error `Unknown collation`.
+
+### 4. Migrasi, Seeder, & Storage Link
+Pastikan database `rental_camp` sudah dibuat di MySQL, lalu jalankan:
+```bash
+php artisan migrate --seed
+php artisan storage:link
+```
+
+### 5. Jalankan Aplikasi
+- **Menggunakan Laravel Herd:** Daftarkan folder `rental-camp` di menu *Sites* pada Laravel Herd, lalu buka `http://rental-camp.test`.
+- **Menggunakan Artisan Server:**
+  ```bash
+  php artisan serve
+  ```
+  Buka aplikasi melalui `http://127.0.0.1:8000`.
+
+---
+
+## 🔐 Akun Demo
+
+Database seeder sudah menyediakan akun uji coba untuk masing-masing *role*:
+
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin** | `admin@demo.test` | `Admin#2026` |
+| **Staff** | `staff@demo.test` | `Staff#2026` |
+| **User** | `user@demo.test` | `User#2026` |
+
+---
+
+## 👨‍💻 Author
+
+**Narendra Lintang Saputra**
+- GitHub: [@Rawsleyyy](https://github.com/Rawsleyyy)
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dikembangkan untuk keperluan akademik (Tugas UAS) dan bebas dipelajari dengan tetap mencantumkan kredit pembuatnya.
