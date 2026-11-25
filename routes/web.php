@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -28,13 +29,9 @@ Route::get('/artikel/{slug}', [PublicController::class, 'articleDetail'])->name(
 Route::match(['get', 'post'], '/cek-booking', [PublicController::class, 'checkBooking'])->name('cek-booking');
 Route::get('/statistik', [PublicController::class, 'statistics'])->name('statistik');
 
-// Quick Rent Redirect (Requires login -> adds item to cart -> goes to cart/checkout)
+// Quick Rent Redirect (Requires login as role:user -> adds item to cart -> goes to cart/checkout)
 Route::get('/sewa/{item?}', function (?string $item = null) {
     $user = Auth::user();
-
-    if (in_array($user?->role, ['admin', 'staff'], true)) {
-        return redirect()->route($user->role === 'admin' ? 'admin.dashboard' : 'staff.dashboard');
-    }
 
     if ($item) {
         $model = Item::where('slug', $item)->first();
@@ -49,7 +46,7 @@ Route::get('/sewa/{item?}', function (?string $item = null) {
     }
 
     return redirect()->route('cart.index');
-})->middleware(['auth'])->name('sewa.create');
+})->middleware(['auth', 'role:user'])->name('sewa.create');
 
 // Role-aware Dashboard Redirect (User goes to /profile, Admin/Staff go to their workspaces)
 Route::get('/dashboard', function () {
@@ -62,8 +59,8 @@ Route::get('/dashboard', function () {
     };
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Authenticated Cart, Checkout, Payment, Cancellation & Profile Routes
-Route::middleware('auth')->group(function () {
+// User-Only Rental Routes (Cart, Checkout, Payment, Cancellation)
+Route::middleware(['auth', 'role:user'])->group(function () {
     // Cart
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
@@ -78,8 +75,10 @@ Route::middleware('auth')->group(function () {
     // User Booking Payment & Cancellation Actions
     Route::post('/bookings/{booking}/pay', [UserBookingController::class, 'pay'])->name('bookings.pay');
     Route::post('/bookings/{booking}/cancel', [UserBookingController::class, 'cancel'])->name('bookings.cancel');
+});
 
-    // Profile & Activity Hub
+// Profile & Activity Hub (accessible to all authenticated roles)
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -91,7 +90,10 @@ Route::middleware(['auth', 'role:admin'])
     ->name('admin.')
     ->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/users', [AdminController::class, 'users'])->name('users.index');
+        Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+        Route::get('/users/create', [AdminUserController::class, 'create'])->name('users.create');
+        Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');
+        Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
         Route::get('/bookings', [AdminController::class, 'bookings'])->name('bookings.index');
         Route::get('/damage-reports', [AdminController::class, 'damageReports'])->name('damage-reports.index');
         Route::get('/activity-logs', [AdminController::class, 'activityLogs'])->name('activity-logs.index');

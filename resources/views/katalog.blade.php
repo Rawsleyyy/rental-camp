@@ -1,4 +1,7 @@
 <x-public-layout title="Katalog Alat & Paket Sewa — Rawlseyyy">
+    @php
+        $isNonRenter = Auth::check() && in_array(Auth::user()->role, ['admin', 'staff'], true);
+    @endphp
     <!-- Header Banner -->
     <section class="bg-neutral-950 text-white py-14">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -64,8 +67,8 @@
                 @forelse ($items as $item)
                     <div class="bg-white rounded-3xl p-4 border border-neutral-200/80 shadow-sm hover:shadow-lg transition flex flex-col justify-between">
                         <div>
-                            <div class="relative bg-neutral-100 rounded-2xl aspect-square overflow-hidden">
-                                <span class="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm {{ $item->is_package ? 'bg-amber-400 text-neutral-950' : 'bg-white/95 text-neutral-900' }}">
+                            <div class="relative {{ $item->image_path ? 'bg-white border border-neutral-100' : 'bg-neutral-100' }} rounded-2xl aspect-square overflow-hidden">
+                                <span class="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-[11px] font-semibold shadow-sm border border-neutral-200/70 {{ $item->is_package ? 'bg-amber-400 text-neutral-950' : 'bg-white/95 text-neutral-900' }}">
                                     {{ $item->is_package ? 'Paket Sewa' : 'Satuan' }}
                                 </span>
                                 <span class="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-neutral-950/80 text-white text-[11px] font-semibold">
@@ -74,7 +77,7 @@
                                 <img
                                     src="{{ $item->image_path ? asset('storage/' . $item->image_path) : 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=800&q=80' }}"
                                     alt="{{ $item->name }}"
-                                    class="w-full h-full object-cover"
+                                    class="{{ $item->image_path ? 'w-full h-full object-contain p-3' : 'w-full h-full object-cover' }}"
                                 >
                             </div>
 
@@ -93,7 +96,11 @@
                                 <span class="text-xs font-normal text-neutral-400">/ hari</span>
                             </p>
 
-                            @if ($item->total_stock > 0)
+                            @if ($isNonRenter)
+                                <button type="button" disabled class="w-full py-2.5 px-4 rounded-xl bg-neutral-100 text-neutral-500 text-xs font-semibold cursor-not-allowed">
+                                    Khusus Penyewa (Role User)
+                                </button>
+                            @elseif ($item->total_stock > 0)
                                 <form action="{{ route('cart.store') }}" method="POST" class="space-y-2">
                                     @csrf
                                     <input type="hidden" name="item_id" value="{{ $item->id }}">

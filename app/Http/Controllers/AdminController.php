@@ -32,16 +32,6 @@ class AdminController extends Controller
     }
 
     /**
-     * Display user account management overview.
-     */
-    public function users(): View
-    {
-        return view('admin.users.index', [
-            'users' => User::latest()->paginate(10),
-        ]);
-    }
-
-    /**
      * Display rental and cancellation transactions.
      */
     public function bookings(): View

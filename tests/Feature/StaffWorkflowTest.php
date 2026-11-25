@@ -394,4 +394,169 @@ class StaffWorkflowTest extends TestCase
             ->assertSee('12 pasak + footprint lengkap')
             ->assertSee('Rain cover utuh');
     }
+
+    public function test_staff_item_and_article_crud_synchronizes_with_homepage_and_user_views(): void
+    {
+        $staff = User::factory()->create(['role' => 'staff']);
+        $user = User::factory()->create(['role' => 'user']);
+        $catTenda = Category::create(['name' => 'Tenda & Shelter', 'slug' => 'tenda-shelter']);
+        $catPaket = Category::create(['name' => 'Paket Sewa', 'slug' => 'paket-sewa']);
+
+        // 1. Staff adds single item & package item
+        $this->actingAs($staff)->post(route('staff.items.store'), [
+            'category_id' => $catTenda->id,
+            'name' => 'Tenda Uji Sinkron 3P',
+            'description' => 'Tenda uji untuk sinkronisasi katalog dan beranda.',
+            'total_stock' => 5,
+            'daily_rate' => 75000,
+        ])->assertRedirect(route('staff.items.index'));
+
+        $this->actingAs($staff)->post(route('staff.items.store'), [
+            'category_id' => $catPaket->id,
+            'name' => 'Paket Uji Sinkron Duo',
+            'description' => 'Paket hemat uji untuk dua orang.',
+            'is_package' => '1',
+            'total_stock' => 3,
+            'daily_rate' => 190000,
+        ])->assertRedirect(route('staff.items.index'));
+
+        $tendaItem = Item::where('name', 'Tenda Uji Sinkron 3P')->firstOrFail();
+        $paketItem = Item::where('name', 'Paket Uji Sinkron Duo')->firstOrFail();
+
+        // Guest & User both see added items on Homepage and Catalog
+        foreach ([null, $user] as $actor) {
+            if ($actor) {
+                $this->actingAs($actor);
+            } else {
+                \Illuminate\Support\Facades\Auth::logout();
+            }
+
+            $this->get('/')
+                ->assertOk()
+                ->assertSee('Tenda Uji Sinkron 3P')
+                ->assertSee('Stok 5')
+                ->assertSee('75.000')
+                ->assertSee('Paket Uji Sinkron Duo')
+                ->assertSee('Stok 3')
+                ->assertSee('190.000');
+
+            $this->get('/katalog')
+                ->assertOk()
+                ->assertSee('Tenda Uji Sinkron 3P')
+                ->assertSee('Paket Uji Sinkron Duo');
+
+            $this->get('/katalog?type=paket')
+                ->assertOk()
+                ->assertSee('Paket Uji Sinkron Duo')
+                ->assertDontSee('Tenda Uji Sinkron 3P');
+        }
+
+        // 2. Staff updates item: reduces stock to 0 and changes name & price
+        $this->actingAs($staff)->put(route('staff.items.update', $tendaItem), [
+            'category_id' => $catTenda->id,
+            'name' => 'Tenda Uji Sinkron 3P Revised',
+            'description' => 'Deskripsi terbaru setelah edit.',
+            'total_stock' => 0,
+            'daily_rate' => 90000,
+        ])->assertRedirect(route('staff.items.index'));
+
+        foreach ([null, $user] as $actor) {
+            if ($actor) {
+                $this->actingAs($actor);
+            } else {
+                \Illuminate\Support\Facades\Auth::logout();
+            }
+
+            $this->get('/')
+                ->assertOk()
+                ->assertSee('Tenda Uji Sinkron 3P Revised')
+                ->assertSee('Stok 0')
+                ->assertSee('90.000')
+                ->assertSee('Stok Kosong')
+                ->assertDontSee('Tenda Uji Sinkron 3P</');
+
+            $this->get('/katalog')
+                ->assertOk()
+                ->assertSee('Tenda Uji Sinkron 3P Revised')
+                ->assertSee('Stok 0')
+                ->assertSee('90.000')
+                ->assertSee('Stok Kosong');
+        }
+
+        // 3. Staff deletes both items and verifies DB + User/Guest views
+        $this->actingAs($staff)->delete(route('staff.items.destroy', $tendaItem))->assertRedirect(route('staff.items.index'));
+        $this->actingAs($staff)->delete(route('staff.items.destroy', $paketItem))->assertRedirect(route('staff.items.index'));
+        $this->actingAs($staff)->get(route('staff.items.index'))->assertOk();
+
+        $this->assertDatabaseMissing('items', ['id' => $tendaItem->id]);
+        $this->assertDatabaseMissing('items', ['id' => $paketItem->id]);
+
+        $this->actingAs($user)->get('/')
+            ->assertOk()
+            ->assertDontSee('Tenda Uji Sinkron 3P Revised')
+            ->assertDontSee('Paket Uji Sinkron Duo');
+
+        $this->actingAs($user)->get('/katalog')
+            ->assertOk()
+            ->assertDontSee('Tenda Uji Sinkron 3P Revised')
+            ->assertDontSee('Paket Uji Sinkron Duo');
+
+        // 4. Staff adds, updates, and deletes article
+        $this->actingAs($staff)->post(route('staff.articles.store'), [
+            'title' => 'Panduan Uji Sinkronisasi',
+            'content' => 'Isi panduan uji awal.',
+        ])->assertRedirect(route('staff.articles.index'));
+
+        $article = Article::where('title', 'Panduan Uji Sinkronisasi')->firstOrFail();
+
+        foreach ([null, $user] as $actor) {
+            if ($actor) {
+                $this->actingAs($actor);
+            } else {
+                \Illuminate\Support\Facades\Auth::logout();
+            }
+
+            $this->get('/')->assertOk()->assertSee('Panduan Uji Sinkronisasi');
+            $this->get('/artikel')->assertOk()->assertSee('Panduan Uji Sinkronisasi');
+            $this->get('/artikel/' . $article->slug)
+                ->assertOk()
+                ->assertSee('Panduan Uji Sinkronisasi')
+                ->assertSee('Isi panduan uji awal.');
+        }
+
+        // Update article
+        $this->actingAs($staff)->put(route('staff.articles.update', $article), [
+            'title' => 'Panduan Uji Sinkronisasi Revisi',
+            'content' => 'Isi panduan uji setelah diedit.',
+        ])->assertRedirect(route('staff.articles.index'));
+
+        $article->refresh();
+
+        foreach ([null, $user] as $actor) {
+            if ($actor) {
+                $this->actingAs($actor);
+            } else {
+                \Illuminate\Support\Facades\Auth::logout();
+            }
+
+            $this->get('/')->assertOk()->assertSee('Panduan Uji Sinkronisasi Revisi');
+            $this->get('/artikel')->assertOk()->assertSee('Panduan Uji Sinkronisasi Revisi');
+            $this->get('/artikel/' . $article->slug)
+                ->assertOk()
+                ->assertSee('Panduan Uji Sinkronisasi Revisi')
+                ->assertSee('Isi panduan uji setelah diedit.')
+                ->assertDontSee('Isi panduan uji awal.');
+        }
+
+        // Delete article
+        $deletedSlug = $article->slug;
+        $this->actingAs($staff)->delete(route('staff.articles.destroy', $article))->assertRedirect(route('staff.articles.index'));
+        $this->actingAs($staff)->get(route('staff.articles.index'))->assertOk();
+
+        $this->assertDatabaseMissing('articles', ['id' => $article->id]);
+
+        $this->actingAs($user)->get('/')->assertOk()->assertDontSee('Panduan Uji Sinkronisasi Revisi');
+        $this->actingAs($user)->get('/artikel')->assertOk()->assertDontSee('Panduan Uji Sinkronisasi Revisi');
+        $this->actingAs($user)->get('/artikel/' . $deletedSlug)->assertNotFound();
+    }
 }

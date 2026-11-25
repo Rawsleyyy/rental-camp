@@ -25,7 +25,8 @@
     </head>
     <body class="font-sans antialiased bg-neutral-50 text-neutral-900 selection:bg-amber-400 selection:text-neutral-950 min-h-screen flex flex-col">
         @php
-            $cartCount = Auth::check() ? (int) Auth::user()->carts()->sum('quantity') : 0;
+            $isNonRenter = Auth::check() && in_array(Auth::user()->role, ['admin', 'staff'], true);
+            $cartCount = (Auth::check() && ! $isNonRenter) ? (int) Auth::user()->carts()->sum('quantity') : 0;
         @endphp
 
         <!-- Public Storefront Navbar -->
@@ -55,17 +56,19 @@
 
                     <!-- Right Actions (Desktop) -->
                     <div class="hidden lg:flex items-center gap-3 shrink-0">
-                        <a href="{{ route('cart.index') }}" class="relative inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-semibold text-white transition">
-                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            <span>Keranjang</span>
-                            @if ($cartCount > 0)
-                                <span class="px-1.5 py-0.5 rounded-full bg-amber-400 text-neutral-950 text-[10px] font-bold leading-none">
-                                    {{ $cartCount }}
-                                </span>
-                            @endif
-                        </a>
+                        @if (! $isNonRenter)
+                            <a href="{{ route('cart.index') }}" class="relative inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-semibold text-white transition">
+                                <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                <span>Keranjang</span>
+                                @if ($cartCount > 0)
+                                    <span class="px-1.5 py-0.5 rounded-full bg-amber-400 text-neutral-950 text-[10px] font-bold leading-none">
+                                        {{ $cartCount }}
+                                    </span>
+                                @endif
+                            </a>
+                        @endif
 
                         @auth
                             @if (in_array(Auth::user()->role, ['admin', 'staff'], true))
@@ -101,14 +104,16 @@
 
                     <!-- Mobile Toggle -->
                     <div class="flex lg:hidden items-center gap-2">
-                        <a href="{{ route('cart.index') }}" class="relative p-2 rounded-lg text-neutral-200 hover:bg-white/10 transition" aria-label="Keranjang">
-                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            @if ($cartCount > 0)
-                                <span class="absolute -top-0.5 -right-0.5 px-1.5 py-0.5 rounded-full bg-amber-400 text-neutral-950 text-[10px] font-bold leading-none">{{ $cartCount }}</span>
-                            @endif
-                        </a>
+                        @if (! $isNonRenter)
+                            <a href="{{ route('cart.index') }}" class="relative p-2 rounded-lg text-neutral-200 hover:bg-white/10 transition" aria-label="Keranjang">
+                                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                @if ($cartCount > 0)
+                                    <span class="absolute -top-0.5 -right-0.5 px-1.5 py-0.5 rounded-full bg-amber-400 text-neutral-950 text-[10px] font-bold leading-none">{{ $cartCount }}</span>
+                                @endif
+                            </a>
+                        @endif
 
                         <button type="button" @click="open = !open" class="p-2 rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 transition" aria-label="Menu">
                             <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -129,7 +134,9 @@
                         <a href="{{ route('artikel.index') }}" class="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">Artikel</a>
                         <a href="{{ route('cek-booking') }}" class="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">Cek Booking</a>
                         <a href="{{ route('statistik') }}" class="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">Statistik</a>
-                        <a href="{{ route('cart.index') }}" class="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">Keranjang ({{ $cartCount }})</a>
+                        @if (! $isNonRenter)
+                            <a href="{{ route('cart.index') }}" class="px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">Keranjang ({{ $cartCount }})</a>
+                        @endif
                     </nav>
 
                     <div class="pt-3 border-t border-white/10 flex flex-col gap-2">

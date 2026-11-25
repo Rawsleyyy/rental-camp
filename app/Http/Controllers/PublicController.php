@@ -22,22 +22,32 @@ class PublicController extends Controller
     {
         $featuredEquipments = Item::with('category')
             ->where('is_package', false)
-            ->latest()
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->take(4)
             ->get();
 
         $featuredPackages = Item::with('category')
             ->where('is_package', true)
-            ->latest()
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->take(4)
             ->get();
 
         $latestArticles = Article::with('user')
-            ->latest()
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->take(3)
             ->get();
 
-        return view('welcome', compact('featuredEquipments', 'featuredPackages', 'latestArticles'));
+        $heroShowcaseItems = Item::with('category')
+            ->where('is_package', false)
+            ->whereNotNull('image_path')
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
+            ->get();
+
+        return view('welcome', compact('featuredEquipments', 'featuredPackages', 'latestArticles', 'heroShowcaseItems'));
     }
 
     /**
@@ -49,7 +59,9 @@ class PublicController extends Controller
         $categorySlug = trim((string) $request->query('category', ''));
         $typeFilter = trim((string) $request->query('type', 'all'));
 
-        $itemsQuery = Item::with('category')->latest();
+        $itemsQuery = Item::with('category')
+            ->orderByDesc('created_at')
+            ->orderByDesc('id');
 
         if ($search !== '') {
             $itemsQuery->where(function ($query) use ($search) {
@@ -81,7 +93,10 @@ class PublicController extends Controller
      */
     public function articles(): View
     {
-        $articles = Article::with('user')->latest()->paginate(9);
+        $articles = Article::with('user')
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
+            ->paginate(9);
 
         return view('artikel.index', compact('articles'));
     }
@@ -95,7 +110,8 @@ class PublicController extends Controller
 
         $relatedArticles = Article::with('user')
             ->where('id', '!=', $article->id)
-            ->latest()
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->take(3)
             ->get();
 

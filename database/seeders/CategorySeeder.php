@@ -31,6 +31,14 @@ class CategorySeeder extends Seeder
                 'slug' => 'penerangan-elektronik',
             ],
             [
+                'name' => 'Pakaian & Alas Kaki',
+                'slug' => 'pakaian-alas-kaki',
+            ],
+            [
+                'name' => 'Aksesoris & Perlengkapan Camp',
+                'slug' => 'aksesoris-outdoor',
+            ],
+            [
                 'name' => 'Paket Sewa',
                 'slug' => 'paket-sewa',
             ],
