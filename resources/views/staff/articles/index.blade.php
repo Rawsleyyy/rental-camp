@@ -9,34 +9,34 @@
 
     <x-admin-flash />
 
-    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-3xl border border-neutral-200/80 shadow-sm overflow-hidden">
-        <div class="px-7 py-5 border-b border-neutral-100">
-            <h2 class="font-serif text-xl text-neutral-950">Daftar Artikel</h2>
-            <p class="text-xs text-neutral-500 mt-0.5">{{ $articles->total() }} artikel dipublikasikan</p>
+    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-3xl border border-canvas-border shadow-sm overflow-hidden">
+        <div class="px-7 py-5 border-b border-canvas-border/70">
+            <h2 class="font-display text-xl text-ink">Daftar Artikel</h2>
+            <p class="text-xs text-ink-muted mt-0.5">{{ $articles->total() }} artikel dipublikasikan</p>
         </div>
 
         <div class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-neutral-100">
-                <thead class="bg-neutral-50/80">
+            <table class="min-w-full divide-y divide-canvas-border/60">
+                <thead class="bg-canvas-warm/80">
                     <tr>
-                        <th class="px-6 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-neutral-500">Judul Artikel</th>
-                        <th class="px-6 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-neutral-500">Penulis</th>
-                        <th class="px-6 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-neutral-500">Tanggal</th>
-                        <th class="px-6 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-neutral-500">Aksi</th>
+                        <th class="px-6 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-ink-muted">Judul Artikel</th>
+                        <th class="px-6 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-ink-muted">Penulis</th>
+                        <th class="px-6 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-ink-muted">Tanggal</th>
+                        <th class="px-6 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-ink-muted">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-neutral-100 bg-white">
+                <tbody class="divide-y divide-canvas-border/60 bg-white">
                     @forelse ($articles as $article)
-                        <tr class="hover:bg-neutral-50/70 transition">
+                        <tr class="hover:bg-canvas-warm/60 transition">
                             <td class="px-6 py-4">
-                                <p class="text-sm font-semibold text-neutral-950">{{ $article->title }}</p>
-                                <p class="text-xs font-mono text-neutral-400">{{ $article->slug }}</p>
+                                <p class="text-sm font-semibold text-ink">{{ $article->title }}</p>
+                                <p class="text-xs font-mono text-ink-muted">{{ $article->slug }}</p>
                             </td>
-                            <td class="px-6 py-4 text-sm text-neutral-700">{{ $article->user->name ?? '-' }}</td>
-                            <td class="px-6 py-4 text-xs text-neutral-500">{{ $article->created_at?->format('d M Y') }}</td>
+                            <td class="px-6 py-4 text-sm text-ink-muted">{{ $article->user->name ?? '-' }}</td>
+                            <td class="px-6 py-4 text-xs text-ink-muted">{{ $article->created_at?->format('d M Y') }}</td>
                             <td class="px-6 py-4 text-right">
                                 <div class="inline-flex items-center gap-2">
-                                    <a href="{{ route('staff.articles.edit', $article) }}" class="px-3.5 py-1.5 rounded-full border border-neutral-300 text-xs font-semibold text-neutral-800 hover:bg-neutral-950 hover:text-white transition">
+                                    <a href="{{ route('staff.articles.edit', $article) }}" class="px-3.5 py-1.5 rounded-full border border-canvas-border text-xs font-semibold text-ink hover:bg-meadow-500 hover:text-white hover:border-meadow-500 transition">
                                         Edit
                                     </a>
                                     <form method="POST" action="{{ route('staff.articles.destroy', $article) }}" onsubmit="return confirm('Hapus artikel ini?')">
@@ -51,7 +51,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-8 text-center text-sm text-neutral-500">Belum ada artikel.</td>
+                            <td colspan="4" class="px-6 py-8 text-center text-sm text-ink-muted">Belum ada artikel.</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -59,7 +59,7 @@
         </div>
 
         @if ($articles->hasPages())
-            <div class="px-6 py-4 border-t border-neutral-100">
+            <div class="px-6 py-4 border-t border-canvas-border/70">
                 {{ $articles->links() }}
             </div>
         @endif

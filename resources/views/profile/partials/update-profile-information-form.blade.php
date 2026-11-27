@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-neutral-900">
+        <h2 class="font-display text-lg font-bold text-ink">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-neutral-600">
+        <p class="mt-1 text-sm text-ink-muted">
             {{ __("Update your account's profile photo, contact details, and email address.") }}
         </p>
     </header>
@@ -20,9 +20,9 @@
         <!-- Avatar Preview & Upload -->
         <div class="flex items-center gap-4">
             @if ($user->avatar)
-                <img src="{{ asset('storage/' . $user->avatar) }}" alt="{{ $user->name }}" class="w-16 h-16 rounded-2xl object-cover border border-neutral-200">
+                <img src="{{ asset('storage/' . $user->avatar) }}" alt="{{ $user->name }}" class="w-16 h-16 rounded-2xl object-cover border border-canvas-border">
             @else
-                <div class="w-16 h-16 rounded-2xl bg-neutral-950 text-amber-400 font-bold text-xl flex items-center justify-center shrink-0">
+                <div class="w-16 h-16 rounded-2xl bg-meadow-500 text-white font-bold text-xl flex items-center justify-center shrink-0">
                     {{ strtoupper(substr($user->name, 0, 1)) }}
                 </div>
             @endif
@@ -33,7 +33,7 @@
                     name="avatar"
                     type="file"
                     accept="image/*"
-                    class="mt-1.5 block w-full text-xs text-neutral-600 file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-neutral-950 file:text-white hover:file:bg-amber-400 hover:file:text-neutral-950 cursor-pointer"
+                    class="mt-1.5 block w-full text-xs text-ink-muted file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-meadow-500 file:text-white hover:file:bg-meadow-600 cursor-pointer"
                 />
                 <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
             </div>
@@ -52,16 +52,16 @@
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
-                    <p class="text-sm mt-2 text-neutral-800">
+                    <p class="text-sm mt-2 text-ink">
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="underline text-sm text-neutral-600 hover:text-neutral-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400">
+                        <button form="send-verification" class="underline text-sm text-ink-muted hover:text-meadow-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-meadow-500">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-emerald-600">
+                        <p class="mt-2 font-medium text-sm text-meadow-700">
                             {{ __('A new verification link has been sent to the email address you provided.') }}
                         </p>
                     @endif
@@ -82,7 +82,7 @@
                 name="address"
                 rows="3"
                 placeholder="Masukkan alamat tempat tinggal Anda..."
-                class="mt-1 block w-full border-neutral-300 bg-neutral-50/70 focus:bg-white focus:border-neutral-950 focus:ring-neutral-950 rounded-xl shadow-sm text-sm py-2.5 px-3.5 transition"
+                class="mt-1 block w-full border-canvas-border bg-canvas-warm/70 text-ink focus:bg-white focus:border-meadow-500 focus:ring-meadow-500 rounded-xl shadow-sm text-sm py-2.5 px-3.5 transition"
             >{{ old('address', $user->address) }}</textarea>
             <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
@@ -96,7 +96,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-emerald-600 font-medium"
+                    class="text-sm text-meadow-700 font-medium"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>

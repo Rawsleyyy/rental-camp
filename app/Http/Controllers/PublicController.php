@@ -40,14 +40,7 @@ class PublicController extends Controller
             ->take(3)
             ->get();
 
-        $heroShowcaseItems = Item::with('category')
-            ->where('is_package', false)
-            ->whereNotNull('image_path')
-            ->orderByDesc('created_at')
-            ->orderByDesc('id')
-            ->get();
-
-        return view('welcome', compact('featuredEquipments', 'featuredPackages', 'latestArticles', 'heroShowcaseItems'));
+        return view('welcome', compact('featuredEquipments', 'featuredPackages', 'latestArticles'));
     }
 
     /**

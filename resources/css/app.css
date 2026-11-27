@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply bg-canvas-warm text-ink selection:bg-meadow-500 selection:text-white;
+    }
+}
+
+@layer components {
+    .palette-strip {
+        background: linear-gradient(90deg, #6BAF5D 0% 25%, #B57A4E 25% 50%, #F5E6D3 50% 75%, #A7D8FF 75% 100%);
+    }
+}

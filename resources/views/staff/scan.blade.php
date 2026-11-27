@@ -17,19 +17,19 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         <!-- Left: Camera QR Scanner + Upload QR Image -->
-        <div data-aos="fade-up" class="lg:col-span-6 bg-white rounded-3xl border border-neutral-200/80 shadow-sm p-6 sm:p-8 space-y-5">
+        <div data-aos="fade-up" class="lg:col-span-6 bg-white rounded-3xl border border-canvas-border shadow-sm p-6 sm:p-8 space-y-5">
             <div class="flex items-start justify-between gap-4">
                 <div>
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-amber-600">Pemindai Kamera Real-Time</p>
-                    <h2 class="font-serif text-xl font-bold text-neutral-950 mt-0.5">Scan QR Code Basecamp</h2>
+                    <p class="text-[11px] font-bold uppercase tracking-widest text-earth-600">Pemindai Kamera Real-Time</p>
+                    <h2 class="font-display text-xl font-bold text-ink mt-0.5">Scan QR Code Basecamp</h2>
                 </div>
-                <span id="scan-status-pill" class="px-3 py-1 rounded-full bg-neutral-100 text-neutral-700 text-xs font-semibold">
+                <span id="scan-status-pill" class="px-3 py-1 rounded-full bg-canvas-warm border border-canvas-border text-ink-muted text-xs font-semibold">
                     Kamera Nonaktif
                 </span>
             </div>
 
-            <div class="rounded-2xl border-2 border-dashed border-neutral-200 bg-neutral-950/5 overflow-hidden p-3">
-                <div id="qr-reader" class="w-full min-h-[260px] rounded-xl overflow-hidden bg-neutral-950 flex items-center justify-center text-xs text-neutral-400">
+            <div class="rounded-2xl border-2 border-dashed border-canvas-border bg-canvas-warm overflow-hidden p-3">
+                <div id="qr-reader" class="w-full min-h-[260px] rounded-xl overflow-hidden bg-ink flex items-center justify-center text-xs text-neutral-300">
                     <span>Tekan "Mulai Kamera" untuk mengaktifkan scanner QR</span>
                 </div>
             </div>
@@ -38,20 +38,20 @@
                 <button
                     type="button"
                     id="start-scan-btn"
-                    class="px-5 py-2.5 rounded-full bg-neutral-950 text-white text-xs font-semibold hover:bg-amber-400 hover:text-neutral-950 transition"
+                    class="px-5 py-2.5 rounded-full bg-meadow-500 text-white text-xs font-semibold hover:bg-meadow-600 transition shadow-sm shadow-meadow-500/20"
                 >
                     Mulai Kamera
                 </button>
                 <button
                     type="button"
                     id="stop-scan-btn"
-                    class="hidden px-5 py-2.5 rounded-full border border-neutral-300 text-neutral-700 text-xs font-semibold hover:bg-neutral-100 transition"
+                    class="hidden px-5 py-2.5 rounded-full border border-canvas-border text-ink-muted text-xs font-semibold hover:bg-canvas-warm transition"
                 >
                     Hentikan Kamera
                 </button>
 
-                <label class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-neutral-300 text-xs font-semibold text-neutral-800 hover:bg-neutral-50 cursor-pointer transition">
-                    <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <label class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-meadow-500/60 text-xs font-semibold text-meadow-700 hover:bg-meadow-50 cursor-pointer transition">
+                    <svg class="w-4 h-4 text-meadow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <span>Scan Gambar QR</span>
@@ -64,11 +64,11 @@
 
         <!-- Right: USB Scanner / Manual Input -->
         <div data-aos="fade-up" data-aos-delay="100" class="lg:col-span-6 space-y-6">
-            <div class="bg-white rounded-3xl border border-neutral-200/80 shadow-sm p-6 sm:p-8 space-y-4">
+            <div class="bg-white rounded-3xl border border-canvas-border shadow-sm p-6 sm:p-8 space-y-4">
                 <div>
-                    <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-600">USB Scanner / Input Cepat</p>
-                    <h2 class="font-serif text-xl font-bold text-neutral-950 mt-0.5">Cari atau Scan Kode Booking</h2>
-                    <p class="text-xs text-neutral-500 mt-1">
+                    <p class="text-[11px] font-bold uppercase tracking-widest text-meadow-700">USB Scanner / Input Cepat</p>
+                    <h2 class="font-display text-xl font-bold text-ink mt-0.5">Cari atau Scan Kode Booking</h2>
+                    <p class="text-xs text-ink-muted mt-1">
                         Arahkan USB barcode scanner ke kolom di bawah atau ketik kode booking, lalu tekan Enter untuk langsung membuka checklist serah terima.
                     </p>
                 </div>
@@ -76,7 +76,7 @@
                 <form id="scan-lookup-form" method="POST" action="{{ route('staff.scan') }}" class="space-y-4">
                     @csrf
                     <div>
-                        <label for="booking_code_input" class="block text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-1.5">
+                        <label for="booking_code_input" class="block text-xs font-semibold uppercase tracking-wider text-ink-muted mb-1.5">
                             Kode Booking <span class="text-red-500">*</span>
                         </label>
                         <input
@@ -87,38 +87,38 @@
                             placeholder="RWL-20261122-XXXX"
                             autofocus
                             required
-                            class="w-full rounded-xl border-neutral-300 text-base font-mono font-bold tracking-wider focus:border-neutral-950 focus:ring-neutral-950"
+                            class="w-full rounded-xl border-canvas-border bg-canvas-warm/60 text-base font-mono font-bold tracking-wider text-ink focus:bg-white focus:border-meadow-500 focus:ring-meadow-500"
                         >
                     </div>
 
-                    <button type="submit" class="w-full py-3 rounded-full bg-neutral-950 text-white text-sm font-semibold hover:bg-amber-400 hover:text-neutral-950 transition">
+                    <button type="submit" class="w-full py-3 rounded-full bg-meadow-500 text-white text-sm font-semibold hover:bg-meadow-600 transition shadow-sm shadow-meadow-500/20">
                         Verifikasi &amp; Buka Transaksi
                     </button>
                 </form>
             </div>
 
             <!-- Ready for Pickup Shortcut -->
-            <div class="bg-white rounded-3xl border border-neutral-200/80 shadow-sm overflow-hidden">
-                <div class="px-6 py-4 border-b border-neutral-100 flex items-center justify-between">
+            <div class="bg-white rounded-3xl border border-canvas-border shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-canvas-border/70 flex items-center justify-between">
                     <div>
-                        <h3 class="font-serif text-lg text-neutral-950">Siap Diambil Basecamp (Confirmed)</h3>
-                        <p class="text-xs text-neutral-500">Klik langsung untuk verifikasi checklist &amp; serahkan alat</p>
+                        <h3 class="font-display text-lg text-ink">Siap Diambil Basecamp (Confirmed)</h3>
+                        <p class="text-xs text-ink-muted">Klik langsung untuk verifikasi checklist &amp; serahkan alat</p>
                     </div>
-                    <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">{{ $readyBookings->count() }}</span>
+                    <span class="px-2.5 py-1 rounded-full bg-meadow-100 text-meadow-700 text-xs font-bold">{{ $readyBookings->count() }}</span>
                 </div>
-                <div class="divide-y divide-neutral-100">
+                <div class="divide-y divide-canvas-border/60">
                     @forelse ($readyBookings as $booking)
-                        <a href="{{ route('staff.bookings.show', $booking) }}" class="px-6 py-3.5 flex items-center justify-between gap-4 hover:bg-neutral-50 transition">
+                        <a href="{{ route('staff.bookings.show', $booking) }}" class="px-6 py-3.5 flex items-center justify-between gap-4 hover:bg-canvas-warm/60 transition">
                             <div>
-                                <p class="font-mono text-sm font-bold text-neutral-950">{{ $booking->booking_code }}</p>
-                                <p class="text-xs text-neutral-500">{{ $booking->contact_name ?? $booking->user?->name }} &middot; {{ $booking->bookingItems->count() }} item</p>
+                                <p class="font-mono text-sm font-bold text-ink">{{ $booking->booking_code }}</p>
+                                <p class="text-xs text-ink-muted">{{ $booking->contact_name ?? $booking->user?->name }} &middot; {{ $booking->bookingItems->count() }} item</p>
                             </div>
-                            <span class="px-3 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-semibold shrink-0">
+                            <span class="px-3 py-1.5 rounded-full bg-meadow-500 text-white text-xs font-semibold shrink-0">
                                 Cek &amp; Serahkan &rarr;
                             </span>
                         </a>
                     @empty
-                        <div class="px-6 py-6 text-center text-xs text-neutral-500">
+                        <div class="px-6 py-6 text-center text-xs text-ink-muted">
                             Belum ada booking berstatus Siap Diambil (Confirmed).
                         </div>
                     @endforelse
@@ -158,7 +158,7 @@
 
                     codeInput.value = cleaned;
                     statusPill.textContent = 'QR Terdeteksi!';
-                    statusPill.className = 'px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold';
+                    statusPill.className = 'px-3 py-1 rounded-full bg-meadow-100 text-meadow-800 text-xs font-bold';
 
                     if (html5QrCode && isScanning) {
                         html5QrCode.stop().catch(() => {}).finally(() => {
@@ -189,7 +189,7 @@
                         startBtn.classList.add('hidden');
                         stopBtn.classList.remove('hidden');
                         statusPill.textContent = 'Kamera Aktif...';
-                        statusPill.className = 'px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold';
+                        statusPill.className = 'px-3 py-1 rounded-full bg-earth-100 text-earth-800 text-xs font-bold';
                     } catch (err) {
                         showError('Kamera tidak tersedia atau izin ditolak browser. Gunakan fitur "Scan Gambar QR" atau input kode manual.');
                     }
@@ -203,7 +203,7 @@
                     stopBtn.classList.add('hidden');
                     startBtn.classList.remove('hidden');
                     statusPill.textContent = 'Kamera Nonaktif';
-                    statusPill.className = 'px-3 py-1 rounded-full bg-neutral-100 text-neutral-700 text-xs font-semibold';
+                    statusPill.className = 'px-3 py-1 rounded-full bg-canvas-warm border border-canvas-border text-ink-muted text-xs font-semibold';
                 });
 
                 fileInput.addEventListener('change', async function (e) {

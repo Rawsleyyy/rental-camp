@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6">
-        <h1 class="font-serif text-2xl font-bold text-neutral-950">Buat Akun Petualang Baru</h1>
-        <p class="text-xs text-neutral-500 mt-1">Daftar untuk booking perlengkapan camping secara online di Rawlseyyy.</p>
+        <h1 class="font-display text-2xl font-bold text-ink">Buat Akun Petualang Baru</h1>
+        <p class="text-xs text-ink-muted mt-1">Daftar untuk booking perlengkapan camping secara online di Rawlseyyy.</p>
     </div>
 
     <form method="POST" action="{{ route('register') }}" class="space-y-4">
@@ -44,8 +44,8 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-between pt-3 border-t border-neutral-100">
-            <a class="text-xs font-medium text-neutral-500 hover:text-amber-600 underline transition rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400" href="{{ route('login') }}">
+        <div class="flex items-center justify-between pt-3 border-t border-canvas-border/70">
+            <a class="text-xs font-medium text-ink-muted hover:text-meadow-700 underline transition rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-meadow-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 

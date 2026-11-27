@@ -1,10 +1,10 @@
 @if (session('success'))
-    <div data-aos="fade-up" class="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/90 px-5 py-4 flex items-center justify-between text-emerald-900 shadow-sm">
+    <div data-aos="fade-up" class="mb-6 rounded-2xl border border-meadow-200 bg-meadow-50/90 px-5 py-4 flex items-center justify-between text-meadow-900 shadow-sm">
         <div class="flex items-center gap-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-meadow-500"></span>
             <p class="text-sm font-medium">{{ session('success') }}</p>
         </div>
-        <span class="text-[11px] uppercase tracking-widest text-emerald-700 font-semibold">Saved</span>
+        <span class="text-[11px] uppercase tracking-widest text-meadow-700 font-semibold">Saved</span>
     </div>
 @endif
 
