@@ -30,9 +30,9 @@
     <!-- Brand Header -->
     <div class="h-16 px-6 border-b border-canvas-border flex items-center justify-between shrink-0">
         <a href="{{ $dashboardRoute }}" class="flex items-center gap-3 group">
-            <x-brand-mark size="md" class="group-hover:border-meadow-500 transition" />
+            <x-brand-mark size="md" class="group-hover:scale-105 transition" />
             <div>
-                <span class="block font-display text-lg font-bold tracking-tight text-ink leading-none">Rawlseyyy</span>
+                <span class="block font-display text-lg font-bold tracking-tight text-ink leading-none">Pack &amp; Pitch</span>
                 <span class="block text-[10px] font-semibold uppercase tracking-[0.2em] text-earth-600 mt-1">Workspace {{ ucfirst($role) }}</span>
             </div>
         </a>

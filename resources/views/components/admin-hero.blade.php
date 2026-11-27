@@ -1,5 +1,5 @@
 @props([
-    'eyebrow' => 'Rawlseyyy Console',
+    'eyebrow' => 'Pack & Pitch Console',
     'title',
     'subtitle' => '',
     'actionLabel' => null,

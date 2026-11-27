@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Inventaris Staff"
+        eyebrow="Pack & Pitch / Inventaris Staff"
         title="Kelola Data Alat Camping"
         subtitle="Tambah alat baru, perbarui stok tersedia, harga sewa harian, paket sewa, dan foto perlengkapan."
         actionLabel="+ Tambah Alat"
@@ -12,7 +12,7 @@
     <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-3xl border border-canvas-border shadow-sm overflow-hidden">
         <div class="px-7 py-5 border-b border-canvas-border/70">
             <h2 class="font-display text-xl text-ink">Daftar Alat &amp; Paket Sewa</h2>
-            <p class="text-xs text-ink-muted mt-0.5">{{ $items->total() }} item terdaftar di Rawlseyyy</p>
+            <p class="text-xs text-ink-muted mt-0.5">{{ $items->total() }} item terdaftar di Pack &amp; Pitch</p>
         </div>
 
         <div class="overflow-x-auto">

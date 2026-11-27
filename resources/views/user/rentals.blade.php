@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy Member / Transaksi"
+        eyebrow="Pack & Pitch Member / Transaksi"
         title="Riwayat Sewa Alat Camping"
         subtitle="Lihat seluruh riwayat penyewaan alat camping Anda, tanggal pengambilan, hingga status penyelesaian transaksi."
         actionLabel="Sewa Alat Lagi"

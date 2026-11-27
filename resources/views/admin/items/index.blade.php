@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Inventory"
+        eyebrow="Pack & Pitch / Inventory"
         title="Camping Gear Collection"
         subtitle="Manage stock availability, daily rental rates, categories, and product imagery."
         actionLabel="+ New Item"
@@ -13,7 +13,7 @@
         <div class="px-7 py-5 border-b border-canvas-border/70 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
                 <h2 class="font-display text-xl text-ink">All Rental Items</h2>
-                <p class="text-xs text-ink-muted mt-0.5">{{ $items->total() }} items across Rawlseyyy camping equipment</p>
+                <p class="text-xs text-ink-muted mt-0.5">{{ $items->total() }} items across Pack &amp; Pitch camping equipment</p>
             </div>
         </div>
 

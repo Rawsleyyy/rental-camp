@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      *
-     * Akun Demo Rawlseyyy:
+     * Akun Demo Pack & Pitch:
      * - Admin: admin@demo.test / Admin#2026
      * - Staff: staff@demo.test / Staff#2026
      * - User:  user@demo.test  / User#2026
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
                     'user_id' => $admin->id,
                     'title' => 'Tips Camping Minimalis & Nyaman',
                     'slug' => 'tips-camping-minimalis-nyaman',
-                    'content' => "Camping tidak harus membawa beban berlebih. Dengan pendekatan minimalis, Anda tetap bisa menikmati suasana alam secara maksimal sambil menjaga punggung tetap ringan.\n\nMulailah dengan menyewa paket alat multifungsi atau gear ultralight seperti cooking set titanium dan tenda ber-frame alloy. Susun barang menggunakan teknik layering di dalam carrier: taruh sleeping bag dan pakaian di dasar, alat berat seperti tenda dan logistik menempel di bagian punggung tengah, serta barang yang sering diakses di kompartemen atas.\n\nDengan pemilihan perlengkapan yang ringkas dan efisien dari Rawlseyyy, setup basecamp jadi lebih cepat dan waktu istirahat Anda di alam jauh lebih berkualitas.",
+                    'content' => "Camping tidak harus membawa beban berlebih. Dengan pendekatan minimalis, Anda tetap bisa menikmati suasana alam secara maksimal sambil menjaga punggung tetap ringan.\n\nMulailah dengan menyewa paket alat multifungsi atau gear ultralight seperti cooking set titanium dan tenda ber-frame alloy. Susun barang menggunakan teknik layering di dalam carrier: taruh sleeping bag dan pakaian di dasar, alat berat seperti tenda dan logistik menempel di bagian punggung tengah, serta barang yang sering diakses di kompartemen atas.\n\nDengan pemilihan perlengkapan yang ringkas dan efisien dari Pack & Pitch, setup basecamp jadi lebih cepat dan waktu istirahat Anda di alam jauh lebih berkualitas.",
                     'image_path' => null,
                 ],
             ];

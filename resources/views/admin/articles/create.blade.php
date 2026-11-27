@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Editorial"
+        eyebrow="Pack & Pitch / Editorial"
         title="Publish New Article"
         subtitle="Write an inspiring camping story, safety guide, or gear checklist for visitors."
         actionLabel="&larr; Back to Articles"

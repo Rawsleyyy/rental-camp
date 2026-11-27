@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy Staff Panel"
+        eyebrow="Pack & Pitch Staff Panel"
         :title="'Selamat Datang di Workspace Staff, ' . Auth::user()->name . '!'"
         subtitle="Pantau antrean persetujuan sewa, verifikasi bukti transfer, check-out alat, dan pengembalian tepat waktu."
         actionLabel="Manajemen Transaksi"

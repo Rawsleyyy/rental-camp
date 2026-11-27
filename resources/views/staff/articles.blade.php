@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy Staff / Operasional"
-        title="Data Artikel &amp; Panduan"
-        subtitle="Daftar artikel edukasi pendakian dan checklist peralatan yang ditayangkan untuk pengunjung Rawlseyyy."
+        eyebrow="Pack & Pitch Staff / Operasional"
+        title="Data Artikel & Panduan"
+        subtitle="Daftar artikel edukasi pendakian dan checklist peralatan yang ditayangkan untuk pengunjung Pack & Pitch."
         actionLabel="&larr; Kembali ke Dashboard"
         :actionHref="route('staff.dashboard')"
     />
@@ -49,7 +49,7 @@
                             <td class="px-7 py-4">
                                 <span class="inline-flex rounded-full bg-canvas-warm border border-canvas-border px-3 py-1 text-xs font-mono text-ink-muted">tips-memilih-tenda</span>
                             </td>
-                            <td class="px-7 py-4 text-sm text-ink-muted">Admin Rawlseyyy</td>
+                            <td class="px-7 py-4 text-sm text-ink-muted">Admin Pack &amp; Pitch</td>
                             <td class="px-7 py-4 text-right text-xs text-ink-muted">Aktif (Preview)</td>
                         </tr>
                         <tr class="hover:bg-canvas-warm/60 transition">
@@ -60,7 +60,7 @@
                             <td class="px-7 py-4">
                                 <span class="inline-flex rounded-full bg-canvas-warm border border-canvas-border px-3 py-1 text-xs font-mono text-ink-muted">checklist-alat-camping</span>
                             </td>
-                            <td class="px-7 py-4 text-sm text-ink-muted">Admin Rawlseyyy</td>
+                            <td class="px-7 py-4 text-sm text-ink-muted">Admin Pack &amp; Pitch</td>
                             <td class="px-7 py-4 text-right text-xs text-ink-muted">Aktif (Preview)</td>
                         </tr>
                     @endforelse

@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Categories"
+        eyebrow="Pack & Pitch / Categories"
         title="Create New Category"
-        subtitle="Add a new classification for Rawlseyyy camping &amp; outdoor equipment."
+        subtitle="Add a new classification for Pack & Pitch camping & outdoor equipment."
         actionLabel="&larr; Back to Categories"
         :actionHref="route('admin.categories.index')"
     />

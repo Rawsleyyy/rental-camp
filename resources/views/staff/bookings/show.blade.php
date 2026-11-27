@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Detail Transaksi"
+        eyebrow="Pack & Pitch / Detail Transaksi"
         :title="'Booking ' . $booking->booking_code"
         subtitle="Tinjau rincian alat, verifikasi bukti pembayaran, serah terima alat, dan proses pengembalian beserta kalkulasi denda otomatis."
         actionLabel="← Kembali ke Daftar"

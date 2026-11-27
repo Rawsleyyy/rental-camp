@@ -1,4 +1,4 @@
-<x-public-layout title="Cek Booking & Kartu Pengambilan — Rawlseyyy">
+<x-public-layout title="Cek Booking & Kartu Pengambilan — Pack & Pitch">
     <section class="relative overflow-hidden bg-gradient-to-br from-skyblock-100/80 via-white to-earth-100/65 border-b border-canvas-border text-ink py-14">
         <div class="absolute top-0 inset-x-0 h-1 palette-strip"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -128,7 +128,7 @@
                     <div class="bg-white rounded-3xl border-2 border-meadow-500 shadow-xl overflow-hidden">
                         <div class="bg-gradient-to-r from-meadow-600 to-meadow-500 text-white px-6 sm:px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div>
-                                <p class="text-[11px] uppercase tracking-[0.25em] text-earth-100 font-semibold">Rawlseyyy Pickup Pass</p>
+                                <p class="text-[11px] uppercase tracking-[0.25em] text-earth-100 font-semibold">Pack &amp; Pitch Pickup Pass</p>
                                 <h2 class="font-display text-2xl font-bold mt-1">Kartu Pengambilan Alat Camping</h2>
                                 <p class="text-xs font-mono text-meadow-50 mt-1">{{ $booking->booking_code }}</p>
                             </div>
@@ -218,7 +218,7 @@
                                 </div>
                                 <p class="mt-3 text-xs font-mono font-bold text-ink">{{ $booking->booking_code }}</p>
                                 <p class="mt-1 text-[11px] text-ink-muted leading-relaxed">
-                                    Tunjukkan QR Code ini dan KTP asli kepada petugas Rawlseyyy saat pengambilan alat.
+                                    Tunjukkan QR Code ini dan KTP asli kepada petugas Pack &amp; Pitch saat pengambilan alat.
                                 </p>
                                 <button
                                     type="button"

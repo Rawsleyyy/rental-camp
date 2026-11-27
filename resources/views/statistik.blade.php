@@ -1,9 +1,9 @@
-<x-public-layout title="Statistik Penyewaan — Rawlseyyy">
+<x-public-layout title="Statistik Penyewaan — Pack & Pitch">
     <section class="relative overflow-hidden bg-gradient-to-br from-skyblock-100/80 via-white to-earth-100/65 border-b border-canvas-border text-ink py-14">
         <div class="absolute top-0 inset-x-0 h-1 palette-strip"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="inline-flex px-3.5 py-1 rounded-full bg-meadow-100 text-meadow-700 text-xs font-semibold uppercase tracking-[0.22em] mb-3">Transparansi &amp; Analitik</p>
-            <h1 class="font-display text-3xl sm:text-4xl font-bold text-ink">Statistik Penyewaan Rawlseyyy</h1>
+            <h1 class="font-display text-3xl sm:text-4xl font-bold text-ink">Statistik Penyewaan Pack &amp; Pitch</h1>
             <p class="text-ink-muted text-sm max-w-2xl mx-auto mt-3">
                 Data tren penyewaan bulanan, perbandingan status &amp; pembatalan, serta tingkat pemakaian stok alat camping berdasarkan transaksi riil database.
             </p>

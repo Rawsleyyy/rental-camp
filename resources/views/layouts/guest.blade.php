@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Rawlseyyy') }}</title>
+        <title>{{ config('app.name', 'Pack & Pitch') }}</title>
+
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png?v=2') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v=2') }}">
+        <link rel="apple-touch-icon" href="{{ asset('favicon.png?v=2') }}">
 
         <!-- Fonts: Outfit & Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,10 +42,10 @@
 
             <!-- Brand Header -->
             <div data-aos="fade-up" class="relative text-center">
-                <a href="{{ url('/') }}" class="inline-flex flex-col items-center gap-3 group">
-                    <x-brand-mark size="lg" class="group-hover:border-meadow-500 transition shadow-md" />
+                <a href="{{ url('/') }}" class="inline-flex flex-col items-center gap-2.5 group">
+                    <x-brand-mark size="lg" class="group-hover:scale-105 transition drop-shadow-md" />
                     <div>
-                        <span class="block font-display text-3xl font-bold tracking-tight text-ink">Rawlseyyy</span>
+                        <span class="block font-display text-3xl font-bold tracking-tight text-ink">Pack &amp; Pitch</span>
                         <span class="block text-xs font-semibold uppercase tracking-[0.2em] text-earth-600 mt-1">Persewaan Alat Camping &amp; Outdoor</span>
                     </div>
                 </a>
@@ -58,7 +62,7 @@
             <!-- Back to Home Link -->
             <div data-aos="fade-up" data-aos-delay="150" class="relative mt-6">
                 <a href="{{ url('/') }}" class="inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted hover:text-meadow-700 transition">
-                    &larr; Kembali ke Beranda Rawlseyyy
+                    &larr; Kembali ke Beranda Pack &amp; Pitch
                 </a>
             </div>
         </div>

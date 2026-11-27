@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Categories"
+        eyebrow="Pack & Pitch / Categories"
         title="Edit Category"
         subtitle="Refine category name or URL-friendly slug for {{ $category->name }}."
         actionLabel="&larr; Back to Categories"

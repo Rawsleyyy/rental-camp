@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Categories"
+        eyebrow="Pack & Pitch / Categories"
         title="Camping Equipment Categories"
-        subtitle="Organize your Rawlseyyy outdoor rental gear into curated collections."
+        subtitle="Organize your Pack & Pitch outdoor rental gear into curated collections."
         actionLabel="+ New Category"
         :actionHref="route('admin.categories.create')"
     />

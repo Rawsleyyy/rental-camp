@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Basecamp Check-In &amp; Check-Out"
+        eyebrow="Pack & Pitch / Basecamp Check-In & Check-Out"
         title="Scan QR Kartu Pengambilan"
         subtitle="Pindai QR Code dari Kartu Pengambilan Alat penyewa via kamera, unggah foto QR, atau masukkan Kode Booking secara cepat."
         actionLabel="Manajemen Transaksi"

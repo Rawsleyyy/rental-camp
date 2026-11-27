@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Rawlseyyy') }}</title>
+        <title>{{ config('app.name', 'Pack & Pitch') }}</title>
+
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png?v=2') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v=2') }}">
+        <link rel="apple-touch-icon" href="{{ asset('favicon.png?v=2') }}">
 
         <!-- Fonts: Outfit & Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +70,7 @@
                             <div class="flex items-center gap-2.5 truncate">
                                 <span class="w-2.5 h-2.5 rounded-full bg-meadow-500 shrink-0"></span>
                                 <span class="text-sm font-semibold text-ink truncate">
-                                    Workspace {{ ucfirst($role) }} &middot; Rawlseyyy
+                                    Workspace {{ ucfirst($role) }} &middot; Pack &amp; Pitch
                                 </span>
                             </div>
                         @endisset

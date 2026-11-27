@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Tulis Artikel"
+        eyebrow="Pack & Pitch / Tulis Artikel"
         title="Tambah Artikel Camping"
-        subtitle="Bagikan tips mendaki dan panduan penggunaan alat kepada pengunjung Rawlseyyy."
+        subtitle="Bagikan tips mendaki dan panduan penggunaan alat kepada pengunjung Pack & Pitch."
         actionLabel="← Kembali"
         :actionHref="route('staff.articles.index')"
     />

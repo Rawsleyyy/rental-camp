@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Inventory"
+        eyebrow="Pack & Pitch / Inventory"
         title="Add New Rental Item"
-        subtitle="Register camping &amp; outdoor equipment into the Rawlseyyy catalog."
+        subtitle="Register camping & outdoor equipment into the Pack & Pitch catalog."
         actionLabel="&larr; Back to Items"
         :actionHref="route('admin.items.index')"
     />
@@ -53,7 +53,7 @@
                         Item Name <span class="text-red-500">*</span>
                     </label>
                     <input type="text" id="name" name="name" value="{{ old('name') }}" required
-                           placeholder="e.g. Rawlseyyy Dome Pro 4P"
+                           placeholder="e.g. Pack &amp; Pitch Dome Pro 4P"
                            class="w-full rounded-xl border-canvas-border bg-canvas-warm/60 text-ink focus:bg-white focus:border-meadow-500 focus:ring-meadow-500 text-sm py-3 px-4">
                     @error('name')
                         <p class="mt-1.5 text-xs text-red-600">{{ $message }}</p>

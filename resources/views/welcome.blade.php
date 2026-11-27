@@ -1,4 +1,4 @@
-<x-public-layout title="Rawlseyyy — Persewaan Alat Camping & Outdoor">
+<x-public-layout title="Pack & Pitch — Persewaan Alat Camping & Outdoor">
     @php
         $isNonRenter = Auth::check() && in_array(Auth::user()->role, ['admin', 'staff'], true);
         $previewGear = ($featuredEquipments ?? collect())->firstWhere('image_path', '!=', null) ?? ($featuredEquipments ?? collect())->first();
@@ -10,7 +10,7 @@
         <div class="absolute inset-0">
             <img
                 src="{{ asset('storage/hero/alpine-meadow.jpg') }}"
-                alt="Panorama pegunungan dan padang rumput Rawlseyyy"
+                alt="Panorama pegunungan dan padang rumput Pack &amp; Pitch"
                 class="w-full h-full object-cover object-center"
             >
             <div class="absolute inset-0 bg-gradient-to-r from-[#FDFCFA] via-[#FDFCFA]/85 sm:via-[#FDFCFA]/55 to-transparent"></div>
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- Tentang Rawlseyyy Split Section -->
+    <!-- Tentang Pack & Pitch Split Section -->
     <section class="bg-canvas-warm py-14 lg:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <!-- Left: Overlapping Dual Framed Cards -->
@@ -87,7 +87,7 @@
                 <div class="rounded-3xl border-4 border-white shadow-[0_18px_40px_-18px_rgba(43,43,43,0.22)] overflow-hidden aspect-[16/10] bg-skyblock-100">
                     <img
                         src="{{ asset('storage/hero/alpine-meadow.jpg') }}"
-                        alt="Suasana camp pegunungan bersama Rawlseyyy"
+                        alt="Suasana camp pegunungan bersama Pack &amp; Pitch"
                         class="w-full h-full object-cover"
                     >
                 </div>
@@ -122,7 +122,7 @@
                 </svg>
 
                 <div class="relative space-y-4">
-                    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-earth-600">Tentang Rawlseyyy</p>
+                    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-earth-600">Tentang Pack &amp; Pitch</p>
                     <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink leading-tight">
                         Partner Andalan Setiap Pendakian
                     </h2>
@@ -267,7 +267,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <p class="text-xs font-semibold uppercase tracking-[0.2em] text-earth-600 mb-2">Cara Reservasi</p>
-                <h2 class="font-display text-3xl font-bold text-ink">4 Langkah Mudah Sewa Alat di Rawlseyyy</h2>
+                <h2 class="font-display text-3xl font-bold text-ink">4 Langkah Mudah Sewa Alat di Pack &amp; Pitch</h2>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

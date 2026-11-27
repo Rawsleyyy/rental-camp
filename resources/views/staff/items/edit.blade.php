@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Edit Alat"
+        eyebrow="Pack & Pitch / Edit Alat"
         :title="'Edit ' . $item->name"
         subtitle="Perbarui stok, harga harian, kategori, dan foto perlengkapan camping."
         actionLabel="← Kembali"

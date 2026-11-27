@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6">
         <h1 class="font-display text-2xl font-bold text-ink">Buat Akun Petualang Baru</h1>
-        <p class="text-xs text-ink-muted mt-1">Daftar untuk booking perlengkapan camping secara online di Rawlseyyy.</p>
+        <p class="text-xs text-ink-muted mt-1">Daftar untuk booking perlengkapan camping secara online di Pack &amp; Pitch.</p>
     </div>
 
     <form method="POST" action="{{ route('register') }}" class="space-y-4">

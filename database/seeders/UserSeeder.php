@@ -9,29 +9,29 @@ use Illuminate\Support\Facades\Hash;
 class UserSeeder extends Seeder
 {
     /**
-     * Seed the 3 Rawlseyyy demo accounts (Admin, Staff, User).
+     * Seed the 3 Pack & Pitch demo accounts (Admin, Staff, User).
      */
     public function run(): void
     {
         $accounts = [
             [
-                'name' => 'Admin Rawlseyyy',
+                'name' => 'Admin Pack & Pitch',
                 'email' => 'admin@demo.test',
                 'password' => Hash::make('Admin#2026'),
                 'role' => 'admin',
                 'phone' => '081234567890',
-                'address' => 'Basecamp Rawlseyyy Jl. Pinus Raya No. 24',
+                'address' => 'Basecamp Pack & Pitch Jl. Pinus Raya No. 24',
             ],
             [
-                'name' => 'Staff Rawlseyyy',
+                'name' => 'Staff Pack & Pitch',
                 'email' => 'staff@demo.test',
                 'password' => Hash::make('Staff#2026'),
                 'role' => 'staff',
                 'phone' => '081234567891',
-                'address' => 'Basecamp Rawlseyyy Jl. Pinus Raya No. 24',
+                'address' => 'Basecamp Pack & Pitch Jl. Pinus Raya No. 24',
             ],
             [
-                'name' => 'User Rawlseyyy',
+                'name' => 'User Pack & Pitch',
                 'email' => 'user@demo.test',
                 'password' => Hash::make('User#2026'),
                 'role' => 'user',

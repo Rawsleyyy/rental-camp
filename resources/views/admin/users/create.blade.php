@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Tambah Akun"
+        eyebrow="Pack & Pitch / Tambah Akun"
         title="Tambah Akun Staff atau User"
         subtitle="Buat akun Staff operasional atau Member penyewa baru. Demi keamanan, akun Admin hanya 1 dan hanya bisa diubah melalui source code."
         actionLabel="&larr; Kembali ke Daftar Akun"

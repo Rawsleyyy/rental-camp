@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Inventory"
+        eyebrow="Pack & Pitch / Inventory"
         title="Edit Item"
         subtitle="Update stock, daily rate, category, or product photography for {{ $item->name }}."
         actionLabel="&larr; Back to Items"

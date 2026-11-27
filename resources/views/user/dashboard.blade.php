@@ -1,7 +1,7 @@
 <x-app-layout>
     <!-- Welcome Header -->
     <x-admin-hero
-        eyebrow="Rawlseyyy Member Area"
+        eyebrow="Pack & Pitch Member Area"
         :title="'Selamat Datang, ' . Auth::user()->name . '!'"
         subtitle="Pantau penyewaan alat camping yang sedang berjalan, cek status persetujuan booking, dan kelola profil akun Anda."
         actionLabel="Eksplor Katalog Alat"

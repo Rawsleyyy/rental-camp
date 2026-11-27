@@ -1,4 +1,4 @@
-<x-public-layout title="Katalog Alat & Paket Sewa — Rawlseyyy">
+<x-public-layout title="Katalog Alat & Paket Sewa — Pack & Pitch">
     @php
         $isNonRenter = Auth::check() && in_array(Auth::user()->role, ['admin', 'staff'], true);
     @endphp
@@ -7,7 +7,7 @@
         <div class="absolute top-0 inset-x-0 h-1 palette-strip"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="inline-flex px-3.5 py-1 rounded-full bg-meadow-100 text-meadow-700 text-xs font-semibold uppercase tracking-[0.22em] mb-3">Katalog Lengkap</p>
-            <h1 class="font-display text-3xl sm:text-4xl font-bold text-ink">Alat Camping &amp; Paket Sewa Rawlseyyy</h1>
+            <h1 class="font-display text-3xl sm:text-4xl font-bold text-ink">Alat Camping &amp; Paket Sewa Pack &amp; Pitch</h1>
             <p class="text-ink-muted text-sm max-w-2xl mx-auto mt-3">
                 Temukan perlengkapan satuan maupun paket hemat untuk pendakian dan berkemah. Tambahkan ke keranjang lalu pilih tanggal sewa pada saat checkout.
             </p>

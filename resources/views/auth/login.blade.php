@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6">
-        <h1 class="font-display text-2xl font-bold text-ink">Masuk ke Akun Rawlseyyy</h1>
-        <p class="text-xs text-ink-muted mt-1">Masuk untuk mulai menyewa alat camping pilihan Anda di Rawlseyyy.</p>
+        <h1 class="font-display text-2xl font-bold text-ink">Masuk ke Akun Pack &amp; Pitch</h1>
+        <p class="text-xs text-ink-muted mt-1">Masuk untuk mulai menyewa alat camping pilihan Anda di Pack &amp; Pitch.</p>
     </div>
 
     <!-- Session Status -->
@@ -57,11 +57,11 @@
         @endif
     </form>
 
-    <!-- Akun Demo Rawlseyyy -->
+    <!-- Akun Demo Pack & Pitch -->
     <div class="mt-6 pt-5 border-t border-canvas-border">
         <div class="rounded-2xl bg-canvas-warm border border-earth-200/80 p-4">
             <p class="text-[11px] font-semibold uppercase tracking-widest text-earth-600 mb-3">
-                Akun Demo Rawlseyyy (Klik untuk isi otomatis)
+                Akun Demo Pack &amp; Pitch (Klik untuk isi otomatis)
             </p>
             <div class="space-y-2 text-xs">
                 <button

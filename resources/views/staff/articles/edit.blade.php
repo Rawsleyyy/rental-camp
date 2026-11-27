@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Edit Artikel"
+        eyebrow="Pack & Pitch / Edit Artikel"
         :title="'Edit: ' . $article->title"
         subtitle="Perbarui konten edukasi dan gambar artikel."
         actionLabel="← Kembali"

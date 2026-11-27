@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Editorial"
+        eyebrow="Pack & Pitch / Editorial"
         title="Camping Stories &amp; Field Guides"
         subtitle="Publish outdoor preparation checklists, hiking tips, and camping gear guides."
         actionLabel="+ New Article"

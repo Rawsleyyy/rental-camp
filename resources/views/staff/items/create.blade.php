@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Tambah Alat"
+        eyebrow="Pack & Pitch / Tambah Alat"
         title="Tambah Alat Camping Baru"
-        subtitle="Tambahkan peralatan camping satuan atau paket sewa baru ke katalog Rawlseyyy."
+        subtitle="Tambahkan peralatan camping satuan atau paket sewa baru ke katalog Pack & Pitch."
         actionLabel="← Kembali"
         :actionHref="route('staff.items.index')"
     />

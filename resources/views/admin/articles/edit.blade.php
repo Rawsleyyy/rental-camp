@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Editorial"
+        eyebrow="Pack & Pitch / Editorial"
         title="Edit Article"
         subtitle="Update headline, story content, or cover photography."
         actionLabel="&larr; Back to Articles"

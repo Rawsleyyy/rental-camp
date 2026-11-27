@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Transaksi"
+        eyebrow="Pack & Pitch / Transaksi"
         title="Transaksi Sewa &amp; Pembatalan"
         subtitle="Daftar lengkap penyewaan alat camping, jadwal ambil-kembali, serta status pembayaran dan pembatalan."
         actionLabel="&larr; Kembali ke Dashboard"

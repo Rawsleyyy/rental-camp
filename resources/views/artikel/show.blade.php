@@ -1,4 +1,4 @@
-<x-public-layout :title="$article->title . ' — Rawlseyyy'">
+<x-public-layout :title="$article->title . ' — Pack & Pitch'">
     <section class="py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <a href="{{ route('artikel.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-ink-muted hover:text-meadow-700 mb-6 transition">
@@ -16,7 +16,7 @@
 
                 <div class="p-6 sm:p-10">
                     <p class="text-xs font-semibold uppercase tracking-widest text-earth-600">
-                        {{ $article->created_at?->format('d M Y') }} &middot; Ditulis oleh {{ $article->user->name ?? 'Admin Rawlseyyy' }}
+                        {{ $article->created_at?->format('d M Y') }} &middot; Ditulis oleh {{ $article->user->name ?? 'Admin Pack & Pitch' }}
                     </p>
                     <h1 class="mt-3 font-display text-3xl sm:text-4xl font-bold text-ink leading-tight">
                         {{ $article->title }}

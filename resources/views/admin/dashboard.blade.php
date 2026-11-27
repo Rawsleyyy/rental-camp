@@ -1,9 +1,9 @@
 <x-app-layout>
     <!-- Welcome Header -->
     <x-admin-hero
-        eyebrow="Rawlseyyy Admin Panel"
+        eyebrow="Pack & Pitch Admin Panel"
         :title="'Selamat Datang di Workspace Admin, ' . Auth::user()->name . '!'"
-        subtitle="Pantau ringkasan ketersediaan alat camping, transaksi sewa, manajemen akun, dan operasional harian Rawlseyyy."
+        subtitle="Pantau ringkasan ketersediaan alat camping, transaksi sewa, manajemen akun, dan operasional harian Pack & Pitch."
         actionLabel="+ Tambah Alat Baru"
         :actionHref="route('admin.items.create')"
     />

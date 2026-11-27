@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Staff Transaksi"
+        eyebrow="Pack & Pitch / Staff Transaksi"
         title="Manajemen Transaksi &amp; Approval Sewa"
         subtitle="Kelola persetujuan sewa baru, verifikasi bukti transfer dengan kode unik, check-out alat, hingga proses pengembalian dan denda."
     />

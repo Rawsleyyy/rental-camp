@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Inspeksi"
+        eyebrow="Pack & Pitch / Inspeksi"
         title="Laporan Kerusakan Alat"
         subtitle="Tinjau seluruh laporan kerusakan perlengkapan pasca pengembalian, biaya denda perbaikan, dan status pelunasannya."
         actionLabel="&larr; Kembali ke Dashboard"

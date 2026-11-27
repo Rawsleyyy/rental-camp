@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Staff Pembatalan"
+        eyebrow="Pack & Pitch / Staff Pembatalan"
         title="Approval Pengajuan Pembatalan"
         subtitle="Tinjau pengajuan pembatalan penyewa beserta selisih hari sebelum tanggal sewa dan estimasi refund."
     />

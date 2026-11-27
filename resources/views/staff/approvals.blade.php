@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy Staff / Transaksi"
+        eyebrow="Pack & Pitch Staff / Transaksi"
         title="Persetujuan Sewa Alat Camping"
         subtitle="Verifikasi booking yang baru masuk, periksa kesesuaian tanggal &amp; stok, lalu konfirmasi pesanan pelanggan."
         actionLabel="&larr; Kembali ke Dashboard"

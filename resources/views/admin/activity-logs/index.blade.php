@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Audit Trail"
+        eyebrow="Pack & Pitch / Audit Trail"
         title="Log Aktivitas Admin &amp; Staff"
         subtitle="Pantau setiap aksi pengelolaan inventaris, persetujuan sewa, dan pembaruan artikel secara kronologis."
         actionLabel="&larr; Kembali ke Dashboard"

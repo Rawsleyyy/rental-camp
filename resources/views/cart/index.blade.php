@@ -1,4 +1,4 @@
-<x-public-layout title="Keranjang Sewa — Rawlseyyy">
+<x-public-layout title="Keranjang Sewa — Pack & Pitch">
     <section class="relative overflow-hidden bg-gradient-to-br from-skyblock-100/80 via-white to-earth-100/65 border-b border-canvas-border text-ink py-12">
         <div class="absolute top-0 inset-x-0 h-1 palette-strip"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy Staff / Operasional"
+        eyebrow="Pack & Pitch Staff / Operasional"
         title="Data Alat Camping"
-        subtitle="Cek stok tersedia, kategori perlengkapan, dan tarif sewa harian seluruh peralatan camping Rawlseyyy."
+        subtitle="Cek stok tersedia, kategori perlengkapan, dan tarif sewa harian seluruh peralatan camping Pack & Pitch."
         actionLabel="&larr; Kembali ke Dashboard"
         :actionHref="route('staff.dashboard')"
     />

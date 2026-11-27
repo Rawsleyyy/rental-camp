@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-5">
         <h1 class="font-display text-2xl font-bold text-ink">Buat Password Baru</h1>
-        <p class="text-xs text-ink-muted mt-1">Masukkan password baru untuk akun Rawlseyyy Anda.</p>
+        <p class="text-xs text-ink-muted mt-1">Masukkan password baru untuk akun Pack &amp; Pitch Anda.</p>
     </div>
 
     <form method="POST" action="{{ route('password.store') }}" class="space-y-4">

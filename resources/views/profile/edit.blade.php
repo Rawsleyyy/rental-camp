@@ -5,7 +5,7 @@
 @if ($isStaffOrAdmin)
     <x-app-layout>
         <x-admin-hero
-            eyebrow="Rawlseyyy Account"
+            eyebrow="Pack & Pitch Account"
             title="Profile Settings"
             subtitle="Update your account information, avatar, email address, and password security."
         />
@@ -50,7 +50,7 @@
         })->all();
     @endphp
 
-    <x-public-layout title="Profil & Aktivitas Sewa — Rawlseyyy">
+    <x-public-layout title="Profil & Aktivitas Sewa — Pack & Pitch">
         <section class="relative overflow-hidden bg-gradient-to-br from-skyblock-100/80 via-white to-earth-100/65 border-b border-canvas-border text-ink py-12">
             <div class="absolute top-0 inset-x-0 h-1 palette-strip"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
@@ -535,15 +535,15 @@
 
                         <!-- Transfer Bank Info -->
                         <div x-show="payMethod === 'Transfer Bank'" class="rounded-2xl bg-canvas-warm border border-canvas-border p-4 text-xs text-ink-muted space-y-1.5">
-                            <p class="font-bold text-ink">Rekening Resmi Rawlseyyy Outdoor:</p>
-                            <p><strong>BCA:</strong> <span class="font-mono">123-456-7890</span> a.n. Rawlseyyy Outdoor</p>
-                            <p><strong>Mandiri:</strong> <span class="font-mono">140-009-8877-661</span> a.n. Rawlseyyy Outdoor</p>
+                            <p class="font-bold text-ink">Rekening Resmi Pack &amp; Pitch Outdoor:</p>
+                            <p><strong>BCA:</strong> <span class="font-mono">123-456-7890</span> a.n. Pack &amp; Pitch Outdoor</p>
+                            <p><strong>Mandiri:</strong> <span class="font-mono">140-009-8877-661</span> a.n. Pack &amp; Pitch Outdoor</p>
                         </div>
 
                         <!-- QRIS Store Info (Clean SVG Illustration) -->
                         <div x-show="payMethod === 'QRIS'" x-cloak class="rounded-2xl bg-canvas-warm border border-canvas-border p-4 flex items-center gap-4">
                             <div class="bg-white p-2 rounded-xl border border-canvas-border shrink-0">
-                                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QRIS Rawlseyyy">
+                                <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QRIS Pack & Pitch">
                                     <rect width="88" height="88" rx="6" fill="white"/>
                                     <rect x="8" y="8" width="24" height="24" stroke="#2B2B2B" stroke-width="4"/>
                                     <rect x="16" y="16" width="8" height="8" fill="#2B2B2B"/>
@@ -564,7 +564,7 @@
                                 </svg>
                             </div>
                             <div class="text-xs text-ink-muted space-y-1">
-                                <p class="font-bold text-ink">QRIS Nasional — Rawlseyyy Basecamp</p>
+                                <p class="font-bold text-ink">QRIS Nasional — Pack &amp; Pitch Basecamp</p>
                                 <p>NMID: <span class="font-mono">ID1026000498812</span></p>
                                 <p class="text-[11px] text-ink-muted">Mendukung GoPay, OVO, DANA, ShopeePay &amp; seluruh Mobile Banking.</p>
                             </div>

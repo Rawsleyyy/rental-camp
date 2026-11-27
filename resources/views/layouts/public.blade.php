@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ $title ?? 'Rawlseyyy — Persewaan Alat Camping & Outdoor' }}</title>
+        <title>{{ $title ?? 'Pack & Pitch — Persewaan Alat Camping & Outdoor' }}</title>
+
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png?v=2') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico?v=2') }}">
+        <link rel="apple-touch-icon" href="{{ asset('favicon.png?v=2') }}">
 
         <!-- Fonts: Outfit & Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,8 +39,8 @@
                 <div class="flex items-center justify-between h-16 gap-4">
                     <!-- Brand -->
                     <a href="{{ route('home') }}" class="flex items-center gap-2.5 group shrink-0">
-                        <x-brand-mark size="md" class="group-hover:border-meadow-500 transition" />
-                        <span class="font-display text-xl font-bold tracking-tight text-ink">Rawlseyyy</span>
+                        <x-brand-mark size="md" class="group-hover:scale-105 transition" />
+                        <span class="font-display text-xl font-bold tracking-tight text-ink">Pack &amp; Pitch</span>
                     </a>
 
                     <!-- Center Links (Desktop) -->
@@ -183,7 +187,7 @@
                     <div class="flex items-center gap-3 text-center md:text-left">
                         <x-brand-mark size="sm" />
                         <div>
-                            <span class="font-display text-lg font-bold tracking-tight text-ink">Rawlseyyy</span>
+                            <span class="font-display text-lg font-bold tracking-tight text-ink">Pack &amp; Pitch</span>
                             <p class="mt-0.5 text-xs text-ink-muted">Persewaan Alat Camping &amp; Outdoor Terpercaya &middot; Basecamp Jl. Pinus Raya No. 24</p>
                         </div>
                     </div>
@@ -196,7 +200,7 @@
                     </nav>
                 </div>
                 <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-ink-muted">
-                    <p>&copy; 2026 Rawlseyyy. All rights reserved.</p>
+                    <p>&copy; 2026 Pack &amp; Pitch. All rights reserved.</p>
                     <p>WhatsApp Basecamp: 0812-3456-7890 &bull; Buka Setiap Hari 08.00 – 21.00 WIB</p>
                 </div>
             </div>

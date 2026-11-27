@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Laporan Pengembalian"
+        eyebrow="Pack & Pitch / Laporan Pengembalian"
         title="Laporan Status Pengembalian Alat"
         subtitle="Pantau alat yang masih beredar di penyewa (termasuk yang melewati batas waktu/overdue) serta riwayat pengembalian."
         actionLabel="Manajemen Transaksi"

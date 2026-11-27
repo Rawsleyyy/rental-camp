@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-admin-hero
-        eyebrow="Rawlseyyy / Edukasi & Tips"
+        eyebrow="Pack & Pitch / Edukasi & Tips"
         title="Kelola Artikel Camping"
-        subtitle="Publikasikan panduan mendaki, tips merawat tenda, dan checklist perlengkapan untuk halaman publik Rawlseyyy."
+        subtitle="Publikasikan panduan mendaki, tips merawat tenda, dan checklist perlengkapan untuk halaman publik Pack & Pitch."
         actionLabel="+ Tulis Artikel"
         :actionHref="route('staff.articles.create')"
     />
